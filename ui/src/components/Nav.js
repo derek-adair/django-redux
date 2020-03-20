@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Nav = ({common, handleLogout, profile}) => (
 <nav className="navbar navbar-expand-lg navbar-dark bg-primary" role="navigation" id="header">
     <div className="container">
-  <a class="navbar-brand" href="/">Django-Redux</a>
+  <a className="navbar-brand" href="/">Django-Redux</a>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="navbar-nav mr-auto">
                 { common.loggedIn && (
