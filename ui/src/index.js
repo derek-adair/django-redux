@@ -10,11 +10,11 @@ import configureStore from './store/configureStore'
 
 
 // Vendor Schtuff
-import 'bootstrap/dist/css/bootstrap.css';
+import 'bootswatch/dist/lumen/bootstrap.min.css';
 import 'jquery/src/jquery';
 import 'bootstrap/dist/js/bootstrap.js';
-import 'animate.css/animate.css';
 import './assets/css/App.css';
+
 
 const store = configureStore()
 

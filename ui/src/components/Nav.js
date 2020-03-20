@@ -2,38 +2,21 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Nav = ({common, handleLogout, profile}) => (
-<nav className="navbar navbar-expand-md navbar-static-top navbar-default navbar-header-full navbar-dark yamm" role="navigation" id="header">
+<nav className="navbar navbar-expand-lg navbar-dark bg-primary" role="navigation" id="header">
     <div className="container">
-        <div className="navbar-header">
-            <button type="button" className="navbar-toggle d-inline d-md-none" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span className="sr-only">Toggle navigation</span>
-                <i className="fa fa-bars"></i>
-            </button>
-            <a id="ar-brand" className="navbar-brand d-inline d-md-none" href="index.html">Schmusi<span>.</span>cc</a>
-        </div> 
-
+  <a class="navbar-brand" href="/">Django-Redux</a>
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="navbar-nav mr-auto">
                 { common.loggedIn && (
                   <li className="nav-item">
-                          <Link to={`/u/${profile.username}/`}>Profile</Link>
-                  </li>
-                )}
-                { common.loggedIn && (
-                  <li className="nav-item">
-                          <Link to="/upload/">Upload</Link>
-                  </li>
-                )}
-                { common.loggedIn && (
-                  <li className="nav-item">
-                          <Link to="/library/">Library</Link>
+                          <Link to={`/u/${profile.username}/`} className="nav-link">Profile</Link>
                   </li>
                 )}
              </ul>
             <ul className="navbar-nav">
                 { !common.loggedIn && (
                   <li className="nav-item">
-                    <Link to="/signup">Login/Sign Up</Link>
+                    <Link to="/signup" className="nav-link">Login/Sign Up</Link>
                   </li>
                 )}
                 { common.loggedIn && (

@@ -5,7 +5,6 @@ import { withRouter } from 'react-router-dom'
 import { resetErrorMessage, loadProfile, handleLogout, loadLibrary } from '../actions'
 import { has, each } from 'lodash'
 
-import Header from '../components/Header'
 import Nav from '../components/Nav'
 const loadData = props => {
   const { profile, loadProfile, loadLibrary, common } = props
@@ -97,7 +96,6 @@ export class App extends Component {
   render() {
     return (
       <div>
-        <Header {...this.props}/> 
 				<Nav {...this.props} />
         {this.renderErrorMessage()}
         {this.props.children}
