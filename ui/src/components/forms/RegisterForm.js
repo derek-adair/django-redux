@@ -11,6 +11,8 @@ const schema = yup.object({
 
 const RegisterForm = ({submitRegister, errors}) => {
   return (
+    <div>
+    <h2>Register</h2>
     <Formik
       validationSchema={schema}
       errors={errors}
@@ -72,6 +74,7 @@ const RegisterForm = ({submitRegister, errors}) => {
         </Form>
       )}}
     />
+    </div>
   );
 }
 

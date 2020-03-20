@@ -4,7 +4,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 const LoginForm = ({ submitLogin }) => {
   return (
 <div>
-      <h1>Login</h1>
+      <h2>Login</h2>
       <Formik
         onSubmit={(values, actions) => {
                 return submitLogin(values).then(actions.setSubmitting(false))
