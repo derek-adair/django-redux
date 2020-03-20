@@ -15,10 +15,11 @@ const Root = ({ store }) =>{
   
   return (
   <Provider store={store}>
-    <div>
+    <>
       <Route path="/" 
              component={App} />
     <Switch>
+    <> {/* Empty <> after switch because: https://stackoverflow.com/questions/51971449/react-warning-computedmatch-regarding-some-case-issues */}
       <div className="container">
         <Route exact path="/" 
                component={HomeContainer} 
@@ -33,9 +34,10 @@ const Root = ({ store }) =>{
                component={ConfirmResetPasswordContainer} 
         />
       </div>
+    </>
     </Switch>
     <DevTools />
-    </div>
+    </>
   </Provider>
 )
 }
