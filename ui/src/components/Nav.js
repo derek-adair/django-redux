@@ -20,8 +20,8 @@ const Nav = ({common, handleLogout, profile}) => (
                   </li>
                 )}
                 { common.loggedIn && (
-                  <li className="nav-item d-inline d-md-none">
-                    <a href="/logout" onClick={handleLogout}>Logout</a>
+                  <li className="nav-item">
+                    <a href="/logout" onClick={handleLogout} className="nav-link">Logout</a>
                   </li>
                 )}
             </ul>

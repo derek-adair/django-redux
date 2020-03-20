@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { resetErrorMessage, loadProfile, handleLogout, loadLibrary } from '../actions'
+import { resetErrorMessage, loadProfile, handleLogout, } from '../actions'
 import { has, each } from 'lodash'
 
 import Nav from '../components/Nav'
 const loadData = props => {
-  const { profile, loadProfile, loadLibrary, common } = props
+  const { profile, loadProfile, common } = props
 
   if(common.loggedIn){
     loadProfile()
@@ -36,7 +36,8 @@ export class App extends Component {
 
   componentDidUpdate(prevProps){
     if(prevProps.profile !== this.props.profile && this.props.profile.username !== null){
-        this.props.loadLibrary(this.props.profile.username)
+      // Trigger an action after the profile is laoded or changes
+      //Example: this.props.someAction(this.props.profile.username)
     }
 
   }
@@ -113,6 +114,5 @@ const mapStateToProps = (state, ownProps) => ({
 export default withRouter(connect(mapStateToProps, {
   resetErrorMessage,
   loadProfile,
-  loadLibrary,
   handleLogout
 })(App))

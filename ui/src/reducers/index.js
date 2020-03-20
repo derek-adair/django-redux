@@ -26,35 +26,6 @@ const entityState = { users: {}, clips: {}}
 // Updates an entity cache in response to any action with response.entities.
 const entities = (state = {...entityState}, action) => {
 
-    if (action.type && action.type === ActionTypes['POST_CLIP_SUCCESS']){
-      //@TODO - this will go away when redirect middleware is added
-      window.location.href=`//${window.location.host}/u/${action.response.result}/`;
-    }
-
-    if (action.type && action.type === ActionTypes['DELETE_CLIP_SUCCESS']){
-      const newState = {
-        ...state,
-        clips: {
-            ...state.clips
-        }
-      }
-
-      delete newState.clips[`${action.clip.user}/${action.clip.name}`]
-      return merge({}, newState)
-    }
-    if (action.type && action.type === ActionTypes['REMOVE_FROM_LIBRARY_SUCCESS']){
-      const newState = cloneDeep(state)
-
-      const newClips = newState.library[action.library_owner].clips.filter(clip => clip !== `${action.clip.user}/${action.clip.name}`)
-      newState.library[action.library_owner].clips = newClips || {}
-
-      return newState
-    }
-    if (action.type && action.type === ActionTypes['ADD_TO_LIBRARY_SUCCESS']){
-        const newState = cloneDeep(state)
-        newState.library[action.library_owner].clips.push(`${action.clip.user}/${action.clip.name}`)
-        return newState
-    }
     if (action.response ) {
       if (action.response.entities) {
         return merge({}, state, action.response.entities)
@@ -70,16 +41,6 @@ const profile = (state = {...profileState}, action) => {
   if (action.type === ActionTypes['PROFILE_SUCCESS']) {
     return merge({}, state, action.response )
   }
-  return state
-}
-
-
-const playerState = {source:{}, isPlaying:false} 
-export const player = (state = { ...playerState }, action) => {
-    if (action.type === ActionTypes.ADD_TO_PLAYER){
-        return merge({}, state, {source: action.src})
-    }
-
   return state
 }
 
@@ -123,7 +84,6 @@ const rootReducer = combineReducers({
   common,
   entities,
   profile,
-  player,
   pagination,
   msg,
   error,
