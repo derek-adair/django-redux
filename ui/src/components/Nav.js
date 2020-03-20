@@ -5,7 +5,11 @@ const Nav = ({common, handleLogout, profile}) => (
 <nav className="navbar navbar-expand-lg navbar-dark bg-primary" role="navigation" id="header">
     <div className="container">
   <a className="navbar-brand" href="/">Django-Redux</a>
-        <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+        <div className="collapse navbar-collapse" id="main-menu">
             <ul className="navbar-nav mr-auto">
                 { common.loggedIn && (
                   <li className="nav-item">

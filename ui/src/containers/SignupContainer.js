@@ -40,7 +40,7 @@ class SignupContainer extends Component {
       }
     }
     return (
-      <div>
+      <div className="container">
         <LoginForm submitLogin={submitLogin} />
         <a href="#" onClick={this.triggerReset} >Forgot Password?</a>
       <hr />
