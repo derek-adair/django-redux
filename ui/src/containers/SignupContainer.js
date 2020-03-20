@@ -31,7 +31,7 @@ class SignupContainer extends Component {
     ;
 
     // LODASH get: https://lodash.com/docs/4.17.15#get
-    // checks to see if reset password has been set, defaults to false
+    // checks to see if reset password link has been clicked
     if (get(this, 'state.resetPassword', false)){
       if ( password_reset_msg ) {
           return (<div><h1>Forgot Password?</h1><p>{password_reset_msg}</p></div>)
