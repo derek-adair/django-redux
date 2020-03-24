@@ -43,25 +43,26 @@ export class HomeContainer extends Component {
   }
 
   render() {
-    const
-        users = this.props.users
-    ;
+    const {
+        users,
+        usersToGrab
+    } = this.props;
 
     if (Object.keys(users).length === 0 && users.constructor === Object) {
       return <h1><i>Loading users...</i></h1>
     }
 
-    console.log(users)
-
     return (
       <div>
         <h1>Welcome to Django-Redux Starter App</h1>
+        <h2>User List Example</h2>
         <List
             renderItem={this.renderUser}
             items={users}
             className="user-list"
             onLoadMoreClick={this.handleLoadMoreClick}
             loadingLabel={`Loading users...`}
+            {...usersToGrab}
         />
       </div>
     );
@@ -83,7 +84,7 @@ const mapStateToProps = (state, ownProps) => {
     users: userList,
     common,
     profile,
-    userPagination
+    usersToGrab
   }
 }
 

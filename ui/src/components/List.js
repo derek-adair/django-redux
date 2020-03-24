@@ -46,7 +46,6 @@ export default class List extends Component {
       return <h1><i>Nothing here!</i></h1>
     }
 
-    console.log(items)
     return (
       <div>
         {items.map(renderItem)}
