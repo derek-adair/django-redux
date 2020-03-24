@@ -1,0 +1,38 @@
+version: "3.2"
+services:
+    #db:
+    #    image: postgres:9.5
+
+    api:
+        build: 
+            context: ./api/
+            dockerfile: ./ops/Dockerfile
+        volumes:
+            - ./api:/code
+        command: ./manage.py runserver 0.0.0.0:80
+        expose:
+            - "80"
+        env_file: .env-api 
+        stdin_open: true
+        tty: true
+
+        #depends_on:
+        #    - db
+
+    ui:
+        build:
+            context: ./ui/
+            dockerfile: ./ops/Dockerfile
+        env_file: .env-ui
+        volumes:
+            - "./ui/:/usr/src/app"
+            - "/usr/src/app/node_modules"
+        expose: 
+            - "80"
+        environment:
+        expose: 8888
+
+networks:
+    default:
+        external:
+            name: webproxy

@@ -1,0 +1,28 @@
+# OS generated
+.DS_Store
+.empty
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*~
+
+# Python
+*.pyc
+*.pyo
+
+# develompment files
+data
+data.tar.gz
+static
+media
+node_modules
+*.log
+.cache
+*.coverage
+htmlcov/
+
+.env-ui
+.env-api
