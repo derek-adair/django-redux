@@ -20,9 +20,3 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('app_base.urls')),
 ]
-# static files for debug, also django_debug_toolbar crap
-if settings.DEBUG:
-    import debug_toolbar
-    urlpatterns += [
-        path('__debug__/', include(debug_toolbar.urls)),
-    ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
