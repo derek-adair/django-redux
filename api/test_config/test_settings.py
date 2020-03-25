@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 import os
 
 os.environ["STAGE"] = "test"
-from schmusic.settings import *
+from config.settings import *
 BASE_DIR = os.path.normpath(os.path.dirname(os.path.abspath(__file__)))
 
 
