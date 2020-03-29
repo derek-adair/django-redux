@@ -31,6 +31,7 @@ services:
             - "80"
         environment:
             - NODE_ENV=development
+        expose: 8888
 
 networks:
     default:
