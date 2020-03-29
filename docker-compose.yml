@@ -6,7 +6,7 @@ services:
     api:
         build: 
             context: ./api/
-            dockerfile: ./ops/Dockerfile
+            dockerfile: ./Dockerfile
         volumes:
             - ./api:/code
         command: ./manage.py runserver 0.0.0.0:80
@@ -22,7 +22,7 @@ services:
     ui:
         build:
             context: ./ui/
-            dockerfile: ./ops/Dockerfile
+            dockerfile: ./Dockerfile.prod
         env_file: .env-ui
         volumes:
             - "./ui/:/usr/src/app"
@@ -30,7 +30,7 @@ services:
         expose: 
             - "80"
         environment:
-            - NODE_ENV=development
+            - NODE_ENV=production
 
 networks:
     default:
