@@ -1,7 +1,5 @@
 FROM derekadair/python-workflow:dev
-COPY ./ops/pip.conf /tmp
-COPY ./ops/requirements.txt /tmp
-ENV PIP_CONFIG_FILE=/tmp/pip.conf
+COPY ./requirements.txt /tmp
 RUN pip install -r /tmp/requirements.txt
 
 COPY ./ /code/

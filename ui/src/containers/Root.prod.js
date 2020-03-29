@@ -6,17 +6,17 @@ import { Switch, Route } from 'react-router-dom'
 //Containers 
 import App from './App'
 import UserContainer from './UserContainer'
-import PlayerContainer from './PlayerContainer'
 import SignupContainer from './SignupContainer'
 import HomeContainer from './HomeContainer'
 import ConfirmResetPasswordContainer from './ConfirmResetPasswordContainer'
 
 const Root = ({ store }) => (
   <Provider store={store}>
-    <div>
+    <>
       <Route path="/" 
              component={App} />
     <Switch>
+    <>
       <div className="container">
         <Route exact path="/" 
                component={HomeContainer} 
@@ -31,7 +31,9 @@ const Root = ({ store }) => (
                component={ConfirmResetPasswordContainer} 
         />
       </div>
+    </>
     </Switch>
+  </>
   </Provider>
 )
 
