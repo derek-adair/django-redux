@@ -60,10 +60,7 @@ export class App extends Component {
       field_error_msgs = [];
 
 
-    console.log(error.response.data)
     if (typeof error.response.data === "object") {
-      console.log(field_errors)
-      console.log(error.response.data)
       each(field_errors, function(field_error, key){
         each(field_error, function(msg){
          field_error_msgs.push(msg)
