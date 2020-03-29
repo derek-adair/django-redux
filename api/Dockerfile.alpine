@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir virtualenv && \
     mkdir /virtualenv &&  \
     virtualenv /virtualenv 
 
-COPY pip.conf /virtualenv/
 COPY requirements.* /app/
 RUN /virtualenv/bin/pip install -r requirements.txt
 COPY . /app
+CMD gunicorn config.wsgi -b :80

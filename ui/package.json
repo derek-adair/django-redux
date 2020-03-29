@@ -2,7 +2,7 @@
   "name": "studio",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://api/",
+  "proxy": "http://django-redux-api/",
   "dependencies": {
     "Slidebars": "^2.0.0",
     "animate.css": "^3.7.0",

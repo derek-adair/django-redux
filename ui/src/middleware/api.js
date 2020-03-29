@@ -2,8 +2,7 @@ import { normalize, schema } from 'normalizr'
 import { camelizeKeys } from 'humps'
 import axios from 'axios'
 
-
-const API_ROOT = ( process.env.NODE_ENV === 'production')? 'https://api.schmusi.cc' : '';
+const API_ROOT = ( process.env.NODE_ENV === 'production')? process.env.REACT_APP_API_URI: '';
 // Fetches an API response and normalizes the result JSON according to schema.
 // This makes every API response have the same shape, regardless of how nested it was.
 const callApi = (endpoint, schema, options={}) => {
