@@ -68,6 +68,7 @@ MIDDLEWARE = [
 CORS_ORIGIN_ALLOW_ALL = False
 
 CORS_ORIGIN_WHITELIST = ()
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -80,8 +81,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -174,35 +173,10 @@ if STAGE == "prod":
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-DEBUG_TOOLBAR_CONFIG = {
-        'SHOW_TOOLBAR_CALLBACK': 'config.settings.show_toolbar_callback'
-}
-
-def show_toolbar_callback(request):
-    hide_for_host=('testserver','web')
-    if DEBUG and request.get_host() not in hide_for_host:
-        return True
-
-    return False
-
-
-#SOCIAL AUTH
-SOCIAL_AUTH_POSTGRES_JSONFIELD = True
 DJOSER = {
     'PASSWORD_RESET_CONFIRM_URL' : "reset-password/{uid}/{token}",
     'PASSWORD_RESET_CONFIRM_RETYPE' : True,
-    'SOCIAL_AUTH_ALLOWED_REDIRECT_URIS' : [
-        #'http://node.sandbox.derekadair.com/auth/complete/google-oauth2/',
-    ],
 }
-#### Social App Client Creds
-## Google
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '24174693592-6beco15lpkqm02vhv1m1nurhvqdjf1sb.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'Qo8B4-s0L0FarQk_x7H7u19f'
-## Twitter
-SOCIAL_AUTH_TWITTER_KEY = 'Qn45Wd5ws7pBcsdXgc0niGoYP'
-SOCIAL_AUTH_TWITTER_SECRET = '07ztCpR6siTG8h8anS8VWXIRNxPNx1w1CeK3VcYR0m6ZadMBfn'
-
 
 #Django Rest
 REST_FRAMEWORK = {
