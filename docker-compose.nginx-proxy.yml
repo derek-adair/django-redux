@@ -1,3 +1,5 @@
+# Use with https://hub.docker.com/r/jwilder/nginx-proxy/
+# Make sure to $>docker network create webproxy
 version: "3.2"
 services:
     db:
@@ -30,7 +32,7 @@ services:
         volumes:
             - "./ui/src/:/usr/src/app/src"
         expose: 
-            - "3000"
+            - "80"
 
 networks:
     default:
