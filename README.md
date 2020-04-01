@@ -1,6 +1,10 @@
 # django-redux
 Django Rest / React Redux all ready to go in docker
 
+## Running Demo
+* [UI](https://django-redux-ui.demo.derekadair.com/)
+* [API](https://django-redux-api.demo.derekadair.com/)
+
 ## Easy Development Bootstrapping
 1. Install [Docker](https://docs.docker.com/install/)
 2. `git clone https://github.com/derek-adair/django-redux.git && cd django-redux`
