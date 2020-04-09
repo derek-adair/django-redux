@@ -1,21 +1,12 @@
 # base image
-FROM node:10.15 as build
-
-# install and cache app dependencies
-COPY package.json yarn.lock /tmp/
-RUN cd /tmp && yarn install
+FROM jekyll/builder:4.0 as build
 
 # set working directory
-RUN mkdir /usr/src/app && \
-    cd /usr/src/app && \
-    ln -s /tmp/node_modules
 WORKDIR /usr/src/app
 
-COPY ./ /usr/src/app
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY ./src /usr/src/app
 
-RUN npm run build
+RUN bundle install && bundle exec jekyll build
 
 FROM nginx
 COPY ./nginx.conf /etc/nginx/conf.d/default.conf
