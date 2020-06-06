@@ -2,7 +2,7 @@
 psycopg2
 Pillow
 boto3==1.8.1
-Django==2.2.10
+Django==2.2.13
 django-storages==1.7.1
 django-cors-headers
 django-anymail[mailgun]
